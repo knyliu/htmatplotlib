@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <title>Contact</title>
+    <style type="text/css">
+
+        .grid-full {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        border-radius: 10px;
+
+      }
+      .grid-product-full {
+        background: #f1f1f1;
+        grid-column: span 3;
+        display: flex;
+        position: relative;
+        border-radius: 10px;
+
+      }
+      .grid-detail-sum {
+        position: absolute;
+        top: 35%;
+        right: 12%;
+        text-align: center;
+        border-radius: 10px;
+
+      }
+      .grid-detail-sum h2 {
+        font-size: 3rem;
+        font-weight: 500;
+      }
+      .grid-detail-sum p {
+        margin: 20px 0;
+      }
+      .grid-detail-sum a {
+        color: #3498db;
+      }
+      .grid-detail-sum a:hover {
+        text-decoration: underline;
+      }
+    .container-contact {
+      padding: 20px;
+      text-align: center;
+      color: rgb(87, 87, 87);
+      background-color: rgb(255, 255, 255);
+      width: 100%;
+    }
+
+    .container-contact h3 {
+      font-size: 30px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .btn {
+      height: 35px;
+      width: 250px;
+      font-size: 13px;
+      margin: 20px 0px 20px 0px;
+      background-color: rgb(87, 87, 87);
+      color: rgb(255, 255, 255);
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+
+    .btn:hover {
+      background-color: rgb(211, 211, 211);
+      color: black;
+    }
+
+    input {
+      margin-top: 10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+
+    }
+
+
+    nav {
+      width: 100%;
+      height: 43px;
+      background: #434345;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 40px;
+    }
+
+    nav ul li a {
+      font-weight: 300;
+      color: #D9D9DB;
+      transition: 100ms;
+      font-size: 12px;
+
+    }
+
+    nav ul li a:hover {
+      color: #f5f5f7;
+    }
+
+
+
+    .t_container {
+      width: 60%;
+      margin: 0 auto;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .t_container-truncate {
+      text-overflow: clip;
+      /* 移除省略號 */
+      width: 10px;
+      /* 指定特定長度值，例如 200px */
+    }
+
+    .t_container-truncate::after {
+      content: "...";
+      /* 省略號內容 */
+    }
+
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+    /*--- footer ---*/
+    footer {
+      width: 100%;
+      height: 500px;
+      background: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-main {
+      width: 1070px;
+    }
+
+    .footer-detail {
+      font-size: .7rem;
+      color: #95a5a6;
+      padding: 20px 0;
+      border-bottom: 1px solid #bdc3c7;
+    }
+
+    .footer-detail a {
+      color: #2c3e50;
+    }
+
+    .footer-detail a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-welcome {
+      display: flex;
+      margin: 20px 0;
+      font-size: .8rem;
+      color: #34495e;
+    }
+
+    .footer-welcome i {
+      margin-right: 10px;
+    }
+
+    .footer-ul {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-ul ul {
+      list-style: none;
+    }
+
+    .footer-ul ul li {
+      margin: 7px 0;
+    }
+
+    .footer-ul ul li h4 {
+      color: #34495e;
+      font-size: .7rem;
+    }
+
+    .footer-ul ul li a {
+      color: #7f8c8d;
+      font-size: .7rem;
+    }
+
+    .footer-ul ul li a:hover {
+      text-decoration: underline;
+    }
+
+    #mt {
+      padding-top: 30px;
+    }
+
+    .footer-contact {
+      border-bottom: 1px solid #bdc3c7;
+      padding: 12px 0;
+      margin: 10px 0;
+      color: #7f8c8d;
+      font-size: .7rem;
+    }
+
+    .footer-contact a {
+      color: #3498db;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-copyright {
+      color: #7f8c8d;
+      font-size: .7rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-copyright ul {
+      display: flex;
+      list-style: none;
+      width: auto;
+    }
+
+    .footer-copyright ul li {
+      margin: 0 10px;
+    }
+
+    .footer-copyright ul li a {
+      color: #7f8c8d;
+    }
+
+    .footer-copyright ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .vr {
+      height: 15px;
+      width: 1px;
+      background: #bdc3c7;
+    }
+
+    .footer-lang {
+      display: flex;
+    }
+
+    .footer-lang p {
+      margin: 0 10px;
+    }
+
+    .circle {
+      width: 15px;
+      height: 15px;
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      border-radius: 50%;
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+          <li><a href="index.html">HTMatplotLib</a></li>
+          <li><a href="input_bar.html">Bar</a></li>
+          <li><a href="input_line.html">Line</a></li>
+          <li><a href="input_pie.html">Pie</a></li>
+          <li><a href="input_multi_bar.html">Multi-Bar</a></li>
+          <li><a href="input_multi_line.html">Multi-Line</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+    
+        </ul>
+      </nav>
+    
+      <br>  <br>
+    <iframe src="https://script.google.com/macros/s/AKfycbycxVLZ6sdhf_Bo4MVzvDEJC5XDlXs88NtfcVRzZh3WJK7SzMYg7yHo9s1dryuaqBVXEA/exec" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto">
+  </iframe>
+
+
+
+
+  <footer>
+    <div class="footer-main">
+      <div class="footer-detail">
+        <p>1. Please separate the two elements with a space.</p>
+        <p>2. It is forbidden to have space in an element.</p>
+        <p>3. All graph generation is based on Matplotlib.</a></p>
+      </div> <!-- end footer detail -->
+
+      <div class="footer-welcome">
+        <i class="fab fa-apple"></i>
+        <i class="fas fa-chevron-right"></i>
+        <p>Welcome to HTMatplotLib</p>
+      </div> <!-- end footer-welcome -->
+
+      <div class="footer-ul">
+        <ul>
+          <li>
+            <h4>Graph</h4>
+          </li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Bar Chart</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Line Chart</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Pie Chart</a></li>
+          <li id="mt"></li>
+          <li>
+            <h4>Graph with Multiple Data</h4>
+          </li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Bar</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Line</a></li>
+        </ul>
+
+
+        <ul>
+          <li>
+            <h4>Matplotlib</h4>
+          </li>
+          <li><a href="https://matplotlib.org" target="_blank">Website</a></li>
+          <li><a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a></li>
+          <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a></li>
+          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a></li>
+          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a></li>
+
+        </ul>
+
+        <ul>
+          <li>
+            <h4>Other Website</h4>
+          </li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">HTMatplotLib</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">SUPERHEALTH</a></li>
+          <li id="mt"></li>
+          <li>
+            <h4>Contact</h4>
+          </li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Contact</a></li>
+
+        </ul>
+
+
+
+        <ul>
+          <li>
+            <h4>About Course</h4>
+          </li>
+          <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
+          <li><a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course"
+              target="_blank">NTNU Data Science and Programming</a></li>
+          <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
+        </ul>
+
+
+
+        <ul>
+          <li>
+            <h4>About Developer</h4>
+          </li>
+          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">About</a></li>
+          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a></li>
+          <li><a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a></li>
+
+
+
+        </ul>
+
+
+      </div>
+
+
+      <br>
+      <div class="footer-contact">
+        <p>Please feel free to <a href="#">Contact Us.</a></p>
+      </div>
+      <div class="footer-copyright">
+        <p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
+
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Terms of Use</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Sales and Refunds</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Legal</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+
+        <div class="footer-lang">
+
+          <p>Taiwan</p>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

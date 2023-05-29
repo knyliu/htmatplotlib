@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>-->
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+      <script>
+        function generateFields() {
+          var n = parseInt(document.getElementById("quantity").value);
+          var container = document.getElementById("input_container");
+          container.innerHTML = ""; // 清空输入容器内的内容
+    
+          for (var i = 0; i < n; i++) {
+            var input = document.createElement("input");
+            input.type = "text";
+            input.id = "input_x_" + i;
+            input.placeholder = "请输入第 " + (i + 1) + " 条的 x 轴数据";
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+    
+            var wowDiv = document.createElement("div");
+            wowDiv.id = "wow_" + i;
+            container.appendChild(wowDiv);
+          }
+        }
+    
+        function saveAndDisplayValues() {
+          var n = parseInt(document.getElementById("quantity").value);
+    
+          for (var i = 0; i < n; i++) {
+            var inputId = "input_x_" + i;
+            var inputValue = document.getElementById(inputId).value;
+    
+            window["text_" + (i + 100)] = inputValue;
+          }
+    
+          displayAllTextValues(n);
+        }
+    
+        function displayAllTextValues(n) {
+          var outputContainer = document.getElementById("output_container");
+          outputContainer.innerHTML = ""; // 清空输出容器内的内容
+    
+          for (var i = 0; i < n; i++) {
+            var textOutput = document.createElement("div");
+            var textVarName = "text_" + (i + 100);
+            var textValue = window[textVarName]; // 获取变量值
+    
+            textOutput.innerText = textValue; // 直接使用变量值
+            outputContainer.appendChild(textOutput);
+    
+            var wowDiv = document.getElementById("wow_" + i);
+            wowDiv.innerText = textValue; // 将变量值赋给相应的 wow_0、wow_1、wow_2 的 div 元素
+          }
+        }
+      </script>
+      <style>
+        .container-contact {
+            padding: 20px;
+            text-align: center;
+            color: rgb(87, 87, 87);
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+        }
+        
+        .container-contact h3 {
+            font-size: 30px;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .btn {
+            height: 35px;
+            width: 250px;
+            font-size: 13px;
+            margin: 20px 0px 20px 0px;
+            background-color: rgb(87, 87, 87);
+            color: rgb(255, 255, 255);
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        
+        .btn:hover {
+            background-color: rgb(211, 211, 211);
+            color: black;
+        }
+
+        
+        input {
+            margin-top: 10px;
+        }
+        body {
+		font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	    }
+        
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        
+      }
+      
+
+      nav {
+        width: 100%;
+        height: 43px;
+        background: #434345;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+      nav ul li {
+        margin: 0 40px;
+      }
+      nav ul li a {
+        font-weight: 300;
+        color: #D9D9DB;
+        transition: 100ms;
+        font-size: 12px;
+
+      }
+      nav ul li a:hover {
+        color: #f5f5f7;
+      }
+      #test-input {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #test-input-2 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #test-input-3 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 600px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #test-input-4 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #test-input-5 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+
+      #wow_10 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_20 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_30 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_40 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_50 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_60 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_70 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_80 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_90 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #wow_100 {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+      #quantity {
+        background-color: #f5f5f5;
+        border: 1px solid #ccc;
+        color: #333;
+        font-family: Arial, sans-serif;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+      }
+
+
+      .t_container {
+        width: 60%;
+        margin: 0 auto;
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .t_container-truncate {
+        text-overflow: clip; /* 移除省略號 */
+        width: 10px; /* 指定特定長度值，例如 200px */
+      }
+
+      .t_container-truncate::after {
+        content: "..."; /* 省略號內容 */
+      }
+
+
+      iframe {
+        width: 60%;
+        height: 600px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+      }
+
+
+      
+
+
+
+
+
+
+      /*--- footer ---*/
+      footer {
+        width: 100%;
+        height: 470px;
+        background: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer-main {
+        width: 1070px;
+      }
+      .footer-detail {
+        font-size: .7rem;
+        color: #95a5a6;
+        padding: 20px 0;
+        border-bottom: 1px solid #bdc3c7;
+      }
+      .footer-detail a {
+        color: #2c3e50;
+      }
+      .footer-detail a:hover {
+        text-decoration: underline;
+      }
+      .footer-welcome {
+        display: flex;
+        margin: 20px 0;
+        font-size: .8rem;
+        color: #34495e;
+      }
+      .footer-welcome i {
+        margin-right: 10px;
+      }
+      .footer-ul {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer-ul ul {
+        list-style: none;
+      }
+      .footer-ul ul li {
+        margin: 7px 0;
+      }
+      .footer-ul ul li h4 {
+        color: #34495e;
+        font-size: .7rem;
+      }
+      .footer-ul ul li a {
+        color: #7f8c8d;
+        font-size: .7rem;
+      }
+      .footer-ul ul li a:hover {
+        text-decoration: underline; 
+      }
+      #mt {
+        padding-top: 30px;
+      }
+      .footer-contact {
+        border-bottom: 1px solid #bdc3c7;
+        padding: 12px 0;
+        margin: 10px 0;
+        color: #7f8c8d;
+        font-size: .7rem;
+      }
+      .footer-contact a {
+        color: #3498db;
+      }
+      .footer-contact a:hover {
+        text-decoration: underline;
+      }
+      .footer-copyright {
+        color: #7f8c8d;
+        font-size: .7rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer-copyright ul {
+        display: flex;
+        list-style: none;
+        width: auto;
+      }
+      .footer-copyright ul li {
+        margin: 0 10px;
+      }
+      .footer-copyright ul li a {
+        color: #7f8c8d;
+      }
+      .footer-copyright ul li a:hover {
+        text-decoration: underline; 
+      }
+      .vr {
+        height: 15px;
+        width: 1px;
+        background: #bdc3c7;
+      }
+      .footer-lang {
+        display: flex;
+      }
+      .footer-lang p {
+        margin: 0 10px;
+      }
+      .circle {
+        width: 15px;
+        height: 15px;
+      }
+      .circle img {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        border-radius: 50%;
+      }
+    
+
+
+    </style>
+      <py-env>
+        - matplotlib
+      </py-env>
+    </head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">HTMatplotLib</a></li>  
+      <li><a href="input_bar.html">Bar</a></li>  
+      <li><a href="input_line.html">Line</a></li>
+      <li><a href="input_pie.html">Pie</a></li>  
+      <li><a href="input_multi_bar.html">Multi-Bar</a></li>  
+      <li><a href="input_multi_line.html">Multi-Line</a></li>  
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>    
+
+    </ul>
+  </nav>
+
+  <div class="container-contact">
+    
+
+    <br>
+    <h1>多數據比較折線圖生成</h1>
+    <br>
+    <!--<label for="quantity">輸入欲比較的資料筆數：</label>-->
+    <input type="text" id="quantity" placeholder="請輸入欲比較的資料筆數"/>
+    <!--<input type="number" id="quantity">-->
+    <!--<button  class="btn" onclick="generateFields()">生成</button>-->
+    <!--<button onclick="saveAndDisplayValues()">保存并显示</button> -->
+  
+   <!--
+    <div id="input_container">
+      // 动态生成的输入框将显示在这里 
+    </div>
+    -->
+    <!--
+    <h2>输出结果：</h2>
+    <div id="output_container">
+      //所有的 text_ 值将显示在这里
+    </div>
+    -->
+
+    <br>
+    <br>
+    <input type="text" id="test-input-3" placeholder="請輸入圖表標題"/>
+    <br>
+    <input type="text" id="test-input" placeholder="請輸入x軸資料（使用空格格開）"/>
+    <input type="text" id="test-input-2" placeholder="請輸入分項名稱（使用空格格開）"/>
+    <br>
+    <input type="text" id="test-input-4" placeholder="請輸入x軸標題"/>
+    <input type="text" id="test-input-5" placeholder="請輸入y軸標題"/>
+    <br>
+    <br>
+    <input type='text' id='wow_10' placeholder="請輸入第1筆資料（若無請留空）"/>
+    <input type='text' id='wow_20' placeholder="請輸入第2筆資料（若無請留空）"/>
+    <br>
+    <input type='text' id='wow_30' placeholder="請輸入第3筆資料（若無請留空）"/>
+    <input type='text' id='wow_40' placeholder="請輸入第4筆資料（若無請留空）"/>
+    <br>
+    <input type='text' id='wow_50' placeholder="請輸入第5筆資料（若無請留空）"/>
+    <input type='text' id='wow_60' placeholder="請輸入第6筆資料（若無請留空）"/>
+    <br>
+    <input type='text' id='wow_70' placeholder="請輸入第7筆資料（若無請留空）"/>
+    <input type='text' id='wow_80' placeholder="請輸入第8筆資料（若無請留空）"/>
+    <br>
+    <input type='text' id='wow_90' placeholder="請輸入第9筆資料（若無請留空）"/>
+    <input type='text' id='wow_100' placeholder="請輸入第10筆資料（若無請留空）"/>
+    
+
+
+
+    <div class="col-sm-12 form-group">
+      <button class="btn" id="submit-button" type="submit" pys-onClick="my_function">Sumbit</button>
+    </div>
+
+
+
+    <div class="t_container">
+
+      <div id="test-output"></div>
+      <div id="test-output-1"></div>
+      <div id="test-output-2"></div>
+      <div id="test-output-3"></div>
+      <div id="test-output-4"></div>
+      <div id="out_quantity"></div>
+      <div id="output_x_0"></div>
+      <div id="output_x_1"></div>
+      <div id="output_x_2"></div>
+      
+
+
+
+
+      <br>      
+      <div id="quad"></div>
+      <div class="container">
+        <button class="btn" id="copy-button">Copy URL</button>
+      </div>
+
+    </div>
+
+
+    <py-script output="quad">
+      import numpy as np
+      import matplotlib.pyplot as plt
+  
+      def my_function(*args, **kwargs):
+  
+          
+          N =  Element('quantity').element.value
+          text = Element('test-input').element.value
+          text_2 = Element('test-input-2').element.value
+          text_3 = Element('test-input-3').element.value
+          text_4 = Element('test-input-4').element.value
+          text_5 = Element('test-input-5').element.value
+
+          data_1 = Element('wow_10').element.value
+          data_2 = Element('wow_20').element.value
+          data_3 = Element('wow_30').element.value
+          data_4 = Element('wow_40').element.value
+          data_5 = Element('wow_50').element.value
+          data_6 = Element('wow_60').element.value
+          data_7 = Element('wow_70').element.value
+          data_8 = Element('wow_80').element.value
+          data_9 = Element('wow_90').element.value
+          data_10 = Element('wow_100').element.value
+
+
+          data_1 = list(map(int, data_1.split()))
+          data_2 = list(map(int, data_2.split()))
+          data_3 = list(map(int, data_3.split()))
+          data_4 = list(map(int, data_4.split()))
+          data_5 = list(map(int, data_5.split()))
+          data_6 = list(map(int, data_6.split()))
+          data_7 = list(map(int, data_7.split()))
+          data_8 = list(map(int, data_8.split()))
+          data_9 = list(map(int, data_9.split()))
+          data_10 = list(map(int, data_10.split()))
+          
+          input_l = text_2
+          list_l = input_l.split()
+
+          input_x = text
+          list_x = input_x.split()
+          map_object_x = map(int, list_x)
+          listofint_x = list(map_object_x)
+
+          intN = int(N)
+          
+
+
+
+          Element('test-output').element.innerText = list_l
+          Element('test-output-1').element.innerText = listofint_x
+          Element('test-output-2').element.innerText = text_3
+          Element('test-output-3').element.innerText = text_4
+          Element('test-output-4').element.innerText = text_5
+          
+
+          
+          fig,ax = plt.subplots()
+
+
+
+
+
+
+
+          for j in range(intN):
+            j = j+1
+          
+            a = "%s" %(j)
+            b = "plt.plot(listofint_x, data_"
+            c = ",linestyle='-', linewidth='2', markersize='16', marker='.')"
+          
+            z = b+a+c
+
+            exec(z)
+
+  
+          
+          title = text_3
+          plt.title(title)
+  
+          xlabel = text_4
+          plt.xlabel(xlabel)
+  
+          ylabel = text_5
+          plt.ylabel(ylabel)
+          
+  
+          ax.set_xticks(listofint_x)
+          ax.set_xticklabels(listofint_x)
+          ax.legend(list_l)
+          
+          plt.show()
+            
+          fig
+  
+          buffer = io.BytesIO()
+          plt.savefig(buffer, format='png')
+          buffer.seek(0)
+          image_data = buffer.getvalue()
+          
+          base64_image = base64.b64encode(image_data).decode('utf-8')
+          
+          image_url = f'data:image/png;base64,{base64_image}'
+          
+    
+          Element('quad').element.innerText = image_url
+
+          
+
+    </py-script>
+
+
+    <p id="output"></p>
+
+
+    <script>
+      // 監聽 quad 元素內容的變化
+      var quad = document.getElementById("quad");
+    
+      // 使用 MutationObserver 來監視 quad 元素內容的變化
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          // 檢查 mutation 的類型是否是子節點變化
+          if (mutation.type === "childList") {
+            var divContent = quad.textContent;
+            var myFrame = document.getElementById("myFrame");
+            myFrame.src = divContent; // 將生成的網址載入到 iframe
+          }
+        });
+      });
+    
+      // 開始監視 quad 元素內容的變化
+      observer.observe(quad, { childList: true });
+
+
+
+      const copyButton = document.getElementById('copy-button');
+
+      copyButton.addEventListener('click', function() {
+        const container = document.getElementById('quad'); // 指定要複製文字的容器的ID
+        const textToCopy = container.innerText;
+
+        const tempInput = document.createElement('input');
+        document.body.appendChild(tempInput);
+        tempInput.setAttribute('value', textToCopy);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        // 選擇複製後的動作
+        // 例如顯示一個訊息提示
+        alert('已複製文字');
+      });
+
+
+    </script>
+    
+    
+    
+    <br>      
+    <iframe id="myFrame" width="800" height="1000"></iframe>
+
+  </div>
+
+
+
+
+
+
+
+  <footer>
+    <div class="footer-main">
+      <div class="footer-detail">
+        <p>1. Please separate the two elements with a space.</p>
+        <p>2. It is forbidden to have space in an element.</p>
+        <p>3. All graph generation is based on Matplotlib.</a></p>
+      </div> <!-- end footer detail -->
+      
+      <div class="footer-welcome">
+        <i class="fab fa-apple"></i>
+        <i class="fas fa-chevron-right"></i>
+        <p>Welcome to HTMatplotLib</p>
+      </div> <!-- end footer-welcome -->
+      
+      <div class="footer-ul">
+        <ul>
+          <li><h4>Graph</h4></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Bar Chart</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Line Chart</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Pie Chart</a></li>
+          <li id="mt"></li><li><h4>Graph with Multiple Data</h4></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Bar</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Line</a></li>
+        </ul>
+
+        
+        <ul>
+          <li><h4>Matplotlib</h4></li>
+          <li><a href="https://matplotlib.org" target="_blank">Website</a></li>
+          <li><a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a></li>
+          <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a></li>
+          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a></li>
+          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a></li>
+
+        </ul>
+        
+        <ul>
+          <li><h4>Other Website</h4></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">HTMatplotLib</a></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">SUPERHEALTH</a></li>
+          <li id="mt"></li><li><h4>Contact</h4></li>
+          <li><a href="https://www.apple.com/tw/" target="_blank">Contact</a></li>
+
+        </ul>
+        
+
+        
+        <ul>
+          <li><h4>About Course</h4></li>
+          <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
+          <li><a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course" target="_blank">NTNU Data Science and Programming</a></li>
+          <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
+        </ul>
+
+
+
+        <ul>
+          <li><h4>About Developer</h4></li>
+          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">About</a></li>
+          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a></li>
+          <li><a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a></li>
+
+
+
+        </ul>
+
+
+      </div>
+
+      
+      <br>
+      <div class="footer-contact">
+        <p>Please feel free to <a href="#">Contact Us.</a></p>
+      </div>
+      <div class="footer-copyright">
+        <p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
+        
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Terms of Use</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Sales and Refunds</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Legal</a></li>
+          <div class="vr"></div>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+        
+        <div class="footer-lang">
+
+          <p>Taiwan</p>
+
+        </div>
+      </div>
+      
+    </div>
+  </footer>
+
+    
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

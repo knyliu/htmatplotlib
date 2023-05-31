@@ -38,9 +38,10 @@
         input {
             margin-top: 10px;
         }
+
         body {
-		font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-	    }
+          font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
         
 
       * {
@@ -145,12 +146,12 @@
       }
 
       .t_container-truncate {
-        text-overflow: clip; /* 移除省略號 */
-        width: 10px; /* 指定特定長度值，例如 200px */
+        text-overflow: clip;
+        width: 10px; 
       }
 
       .t_container-truncate::after {
-        content: "..."; /* 省略號內容 */
+        content: "...";
       }
 
 
@@ -164,15 +165,6 @@
         text-align: center;
       }
 
-
-      
-
-
-
-
-
-
-      /*--- footer ---*/
       footer {
         width: 100%;
         height: 600px;
@@ -310,15 +302,16 @@
   <div class="container-contact">
     
 
-    
-    <h1>直方圖生成</h1>
-    <input type="text" id="test-input-3" placeholder="請輸入圖表標題"/>
     <br>
-    <input type="text" id="test-input" placeholder="請輸入x軸資料（使用空格格開）"/>
-    <input type="text" id="test-input-2" placeholder="請輸入y軸資料（使用空格格開）"/>
+    <h1>Bar Chart</h1>
     <br>
-    <input type="text" id="test-input-4" placeholder="請輸入x軸標題"/>
-    <input type="text" id="test-input-5" placeholder="請輸入y軸標題"/>
+    <input type="text" id="test-input-3" placeholder="Title"/>
+    <br>
+    <input type="text" id="test-input" placeholder="x-axis Data (Separate with a space)"/>
+    <input type="text" id="test-input-2" placeholder="y-axis Data (Separate with a space)"/>
+    <br>
+    <input type="text" id="test-input-4" placeholder="x-axis Title"/>
+    <input type="text" id="test-input-5" placeholder="y-axis Title"/>
 
 
     <div class="col-sm-12 form-group">
@@ -412,22 +405,18 @@
 
 
     <script>
-      // 監聽 quad 元素內容的變化
       var quad = document.getElementById("quad");
     
-      // 使用 MutationObserver 來監視 quad 元素內容的變化
       var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-          // 檢查 mutation 的類型是否是子節點變化
           if (mutation.type === "childList") {
             var divContent = quad.textContent;
             var myFrame = document.getElementById("myFrame");
-            myFrame.src = divContent; // 將生成的網址載入到 iframe
+            myFrame.src = divContent;
           }
         });
       });
     
-      // 開始監視 quad 元素內容的變化
       observer.observe(quad, { childList: true });
 
 
@@ -435,7 +424,7 @@
       const copyButton = document.getElementById('copy-button');
 
       copyButton.addEventListener('click', function() {
-        const container = document.getElementById('quad'); // 指定要複製文字的容器的ID
+        const container = document.getElementById('quad');
         const textToCopy = container.innerText;
 
         const tempInput = document.createElement('input');
@@ -445,8 +434,7 @@
         document.execCommand('copy');
         document.body.removeChild(tempInput);
 
-        // 選擇複製後的動作
-        // 例如顯示一個訊息提示
+
         alert('已複製文字');
       });
 
@@ -465,103 +453,119 @@
 
 
   <footer>
-    <div class="footer-main">
-      <div class="footer-detail">
-        <p>1. Please separate the two elements with a space.</p>
-        <p>2. It is forbidden to have space in an element.</p>
-        <p>3. All graph generation is based on Matplotlib.</a></p>
-      </div> <!-- end footer detail -->
-      
-      <div class="footer-welcome">
-        <i class="fab fa-apple"></i>
-        <i class="fas fa-chevron-right"></i>
-        <p>Welcome to HTMatplotLib</p>
-      </div> <!-- end footer-welcome -->
-      
-      <div class="footer-ul">
-        <ul>
-          <li><h4>Graph</h4></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Bar Chart</a></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Line Chart</a></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Pie Chart</a></li>
-          <li id="mt"></li><li><h4>Graph with Multiple Data</h4></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Bar</a></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Multi-Line</a></li>
-        </ul>
-
-        
-        <ul>
-          <li><h4>Matplotlib</h4></li>
-          <li><a href="https://matplotlib.org" target="_blank">Website</a></li>
-          <li><a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a></li>
-          <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a></li>
-          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a></li>
-          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a></li>
-
-        </ul>
-        
-        <ul>
-          <li><h4>Other Website</h4></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">HTMatplotLib</a></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">SUPERHEALTH</a></li>
-          <li id="mt"></li><li><h4>Contact</h4></li>
-          <li><a href="https://www.apple.com/tw/" target="_blank">Contact</a></li>
-
-        </ul>
-        
-
-        
-        <ul>
-          <li><h4>About Course</h4></li>
-          <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
-          <li><a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course" target="_blank">NTNU Data Science and Programming</a></li>
-          <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
-        </ul>
-
-
-
-        <ul>
-          <li><h4>About Developer</h4></li>
-          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">About</a></li>
-          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a></li>
-          <li><a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a></li>
-
-
-
-        </ul>
-
-
-      </div>
-
-      
-      <br>
-      <div class="footer-contact">
-        <p>Please feel free to <a href="#">Contact Us.</a></p>
-      </div>
-      <div class="footer-copyright">
-        <p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
-        
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Terms of Use</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Sales and Refunds</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Legal</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Sitemap</a></li>
-        </ul>
-        
-        <div class="footer-lang">
-
-          <p>Taiwan</p>
-
+    <footer>
+      <div class="footer-main">
+        <div class="footer-detail">
+          <p>1. Please separate the two elements with a space.</p>
+          <p>2. It is forbidden to have space in an element.</p>
+          <p>3. All graph generation is based on Matplotlib.</a></p>
+        </div> 
+  
+        <div class="footer-welcome">
+          <p>Welcome to HTMatplotLib</p>
+        </div> 
+  
+        <div class="footer-ul">
+          <ul>
+            <li>
+              <h4>Graph</h4>
+            </li>
+            <li><a href="input_bar.html">Bar Chart</a></li>
+            <li><a href="input_line.html">Line Chart</a></li>
+            <li><a href="input_pie.html">Pie Chart</a></li>
+            <li id="mt"></li>
+            <li>
+              <h4>Graph with Multiple Data</h4>
+            </li>
+            <li><a href="input_multi_bar.html">Multi-Bar</a></li>
+            <li><a href="input_multi_line.html">Multi-Line</a></li>
+          </ul>
+  
+  
+          <ul>
+            <li>
+              <h4>Matplotlib</h4>
+            </li>
+            <li><a href="https://matplotlib.org" target="_blank">Website</a></li>
+            <li><a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a></li>
+            <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a></li>
+            <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a></li>
+            <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a></li>
+  
+          </ul>
+  
+          <ul>
+            <li>
+              <h4>Other Website</h4>
+            </li>
+            <li><a href="index.html" target="_blank">HTMatplotLib</a></li>
+            <li><a href=https://knyliu.github.io/superhealth/index.html" target="_blank">SUPERHEALTH</a></li>
+            <li id="mt"></li>
+            <li>
+              <h4>Contact</h4>
+            </li>
+            <li><a href="contact.html" target="_blank">Contact</a></li>
+  
+          </ul>
+  
+  
+  
+          <ul>
+            <li>
+              <h4>About Course</h4>
+            </li>
+            <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
+            <li><a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course"
+                target="_blank">NTNU Data Science and Programming</a></li>
+            <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
+          </ul>
+  
+  
+  
+          <ul>
+            <li>
+              <h4>About Developer</h4>
+            </li>
+            <li><a href="about.html" target="_blank">About</a></li>
+            <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a></li>
+            <li><a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a></li>
+  
+  
+  
+          </ul>
+  
+  
         </div>
+  
+  
+        <br>
+        <div class="footer-contact">
+          <p>Please feel free to <a href="contact.html">Contact Us.</a></p>
+        </div>
+        <div class="footer-copyright">
+          <p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
+  
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Terms of Use</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Sales and Refunds</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Legal</a></li>
+            <div class="vr"></div>
+            <li><a href="#">Sitemap</a></li>
+          </ul>
+  
+          <div class="footer-lang">
+  
+            <p>Taiwan</p>
+  
+          </div>
+        </div>
+  
       </div>
-      
-    </div>
-  </footer>
+    </footer>
 
     
 

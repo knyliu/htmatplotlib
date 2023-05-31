@@ -194,12 +194,16 @@
 
     .t_container-truncate {
       text-overflow: clip;
+      /* 移除省略號 */
       width: 10px;
+      /* 指定特定長度值，例如 200px */
     }
 
     .t_container-truncate::after {
       content: "...";
+      /* 省略號內容 */
     }
+
 
     iframe {
       width: 60%;
@@ -211,6 +215,15 @@
       text-align: center;
     }
 
+
+
+
+
+
+
+
+
+    /*--- footer ---*/
     footer {
       width: 100%;
       height: 500px;
@@ -350,7 +363,7 @@
     .image-container {
       display: flex;
       overflow: hidden;
-      width: 8540px;
+      width: 8540px; /* 設置容器寬度 */
       animation: slide-animation 240s linear infinite;
     }
 
@@ -386,41 +399,14 @@
     </ul>
   </nav>
 
-  <br>  <br>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/reWmUW5.png" style="width: 711.6px; height: 154.695652px;">
-  </div>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/pHCwHXu.png" style="width: 1423.2px; height: 650.4px;">
-  </div>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/ZoP1cNM.png" style="width: 1423.2px; height: 650.4px;">
-  </div>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/H0Cb4gd.png" style="width: 1423.2px; height: 650.4px;">
-  </div>
   
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/1hAhNLo.png" style="width: 1423.2px; height: 650.4px;">
-  </div>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/bECihBb.png" style="width: 1423.2px; height: 650.4px;">
-  </div>
 
-  <div class="image-container">
-    <img src="https://i.imgur.com/pHCwHXu.png">
-    <img src="https://i.imgur.com/ZoP1cNM.png">
-    <img src="https://i.imgur.com/H0Cb4gd.png">
-    <img src="https://i.imgur.com/1hAhNLo.png">
-    <img src="https://i.imgur.com/bECihBb.png">
-  </div>
 
-  <br>
 
 
   <footer>
@@ -429,11 +415,11 @@
         <p>1. Please separate the two elements with a space.</p>
         <p>2. It is forbidden to have space in an element.</p>
         <p>3. All graph generation is based on Matplotlib.</a></p>
-      </div>
+      </div> <!-- end footer detail -->
 
       <div class="footer-welcome">
         <p>Welcome to HTMatplotLib</p>
-      </div>
+      </div> <!-- end footer-welcome -->
 
       <div class="footer-ul">
         <ul>
@@ -536,6 +522,14 @@
 
     </div>
   </footer>
+
+
+
+
+
+
+
+
 
 
 

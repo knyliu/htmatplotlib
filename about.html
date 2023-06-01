@@ -195,14 +195,11 @@
 
     .t_container-truncate {
       text-overflow: clip;
-      /* 移除省略號 */
       width: 10px;
-      /* 指定特定長度值，例如 200px */
     }
 
     .t_container-truncate::after {
       content: "...";
-      /* 省略號內容 */
     }
 
 
@@ -219,12 +216,6 @@
 
 
 
-
-
-
-
-
-    /*--- footer ---*/
     footer {
       width: 100%;
       height: 500px;
@@ -364,7 +355,7 @@
     .image-container {
       display: flex;
       overflow: hidden;
-      width: 8540px; /* 設置容器寬度 */
+      width: 8540px; 
       animation: slide-animation 240s linear infinite;
     }
 
@@ -381,6 +372,90 @@
       width: 800px;
       height: 366px;
     }
+  </style>
+  <style>
+    @keyframes typing {
+  from {
+  width: 0;
+  }
+  to {
+  width: 100%;
+  }
+  }
+  
+  @keyframes blink-caret {
+  from, to {
+  border-color: transparent;
+  }
+  50% {
+  border-color: #000;
+  }
+  }
+  
+  #text-animation {
+  text-align: center; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  border-right: 1px solid #000; 
+  font-size: 60px;
+  color: #333;
+  }
+  #text-animation-2 {
+  text-align: center; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  border-right: 1px solid #000; 
+  font-size: 15px;
+  color: #333;
+  }
+  
+  @keyframes fade-in {
+  from {
+  opacity: 0;
+  }
+  to {
+  opacity: 1;
+  }
+  }
+  
+  @keyframes cursor-blink {
+  0% {
+  opacity: 0;
+  }
+  50% {
+  opacity: 1;
+  }
+  100% {
+  opacity: 0;
+  }
+  }
+  
+  @keyframes letter-typing {
+  0% {
+  opacity: 0;
+  transform: translateY(-20px);
+  }
+  100% {
+  opacity: 1;
+  transform: translateY(0);
+  }
+  }
+  
+  #text-animation span {
+  animation: letter-typing 0.5s ease-in-out;
+  }
+  
+  #text-animation::after {
+  content: "|";
+  animation: cursor-blink 0.7s infinite;
+  }
+  
+  #text-animation.done::after {
+  animation: none; 
+  content: ""; 
+  }
+  
+  
   </style>
 
 </head>
@@ -400,7 +475,61 @@
     </ul>
   </nav>
 
+  <br><br>
+  <h1 id="text-animation"></h1>
+  <br>
+  <h1 id="text-animation-2"></h1>
 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+  var text = "HTMatplotLib";
+  var speed = 100; 
+
+  var element = document.getElementById("text-animation");
+  var i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      var span = document.createElement("span");
+      span.textContent = text.charAt(i);
+      element.appendChild(span);
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+      element.classList.add("done"); 
+    }
+  }
+
+  typeWriter();
+});
+
+</script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+      var text = "Data Visualization in HTML.";
+      var speed = 100; 
+      var element = document.getElementById("text-animation-2");
+      var i = 0;
+    
+      function typeWriter() {
+        if (i < text.length) {
+          var span = document.createElement("span");
+          span.textContent = text.charAt(i);
+          element.appendChild(span);
+          i++;
+          setTimeout(typeWriter, speed);
+        } else {
+          element.classList.add("done"); 
+        }
+      }
+    
+      typeWriter();
+    });
+    
+    </script>
+    <br><br><br>
 
 
 

@@ -276,10 +276,29 @@
         background-size: cover;
         border-radius: 50%;
       }
-    
+      .SelectInput {
+        display: none;
+      }
+      #Select {
+        width: 300px;
+        height: 30px;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        color: #2c3e50;
+        background-color: #f9f9f9;
+        text-align: center;
 
+      }
+      
+      #Select option {
+        font-size: 16px;
+        text-align: center;
+
+      }
 
     </style>
+
+
       <py-env>
         - matplotlib
       </py-env>
@@ -306,13 +325,31 @@
     <br>
     <h1>Bar Chart</h1>
     <br>
+    <select id="Select">
+      <option value="0" disabled selected hidden>Please Select The Bar Chart Style.</option>
+      <option value="1">Horizontal Bar Chart</option>
+      <option value="2">Vertical Bar Chart</option>
+    </select>
+    <br>
+    <br>
+    <input type="text" id="SelectInput" class="SelectInput">
+    <script>
+      const selectElement = document.getElementById("Select");
+      const inputElement = document.getElementById("SelectInput");
+  
+      selectElement.addEventListener("change", function() {
+        const selectedValue = selectElement.value;
+        inputElement.value = selectedValue;
+      });
+    </script>
+
     <input type="text" id="test-input-3" placeholder="Title"/>
     <br>
-    <input type="text" id="test-input" placeholder="x-axis Data (Separate with a space)"/>
-    <input type="text" id="test-input-2" placeholder="y-axis Data (Separate with a space)"/>
+    <input type="text" id="test-input" placeholder="Categories (Separate with a space)"/>
+    <input type="text" id="test-input-2" placeholder="Values (Separate with a space)"/>
     <br>
-    <input type="text" id="test-input-4" placeholder="x-axis Title"/>
-    <input type="text" id="test-input-5" placeholder="y-axis Title"/>
+    <input type="text" id="test-input-4" placeholder="Title of Categories"/>
+    <input type="text" id="test-input-5" placeholder="Title of Values"/>
 
 
     <div class="col-sm-12 form-group">
@@ -339,30 +376,34 @@
 
     <py-script output="quad">
       import matplotlib.pyplot as plt
-  
+      
+    
       def my_function(*args, **kwargs):
   
+          SelectInput = Element('SelectInput').element.value
+          SelectInput = int(SelectInput)
+
           text = Element('test-input').element.value
           text_2 = Element('test-input-2').element.value
           text_3 = Element('test-input-3').element.value
           text_4 = Element('test-input-4').element.value
           text_5 = Element('test-input-5').element.value
 
+          
 
   
+          
           input_x = text
           list_x = input_x.split()
-          map_object_x = map(int, list_x)
-          listofint_x = list(map_object_x)
   
           input_y = text_2
           list_y = input_y.split()
           map_object_y = map(int, list_y)
           listofint_y = list(map_object_y)
           
-          Element('test-output').element.innerText = listofint_x
+          Element('test-output').element.innerText = list_x
           Element('test-output-1').element.innerText = listofint_y
-          Element('test-output-2').element.innerText = text_3
+          Element('test-output-2').element.innerText = SelectInput
           Element('test-output-3').element.innerText = text_4
           Element('test-output-4').element.innerText = text_5
 
@@ -374,28 +415,53 @@
           title = text_3
           plt.title(title)
   
-          xlabel = text_4
-          plt.xlabel(xlabel)
-  
-          ylabel = text_5
-          plt.ylabel(ylabel)
+
           
-  
-          plt.bar(listofint_x,listofint_y, tick_label=listofint_x)
-  
-          fig
-  
-          buffer = io.BytesIO()
-          plt.savefig(buffer, format='png')
-          buffer.seek(0)
-          image_data = buffer.getvalue()
-          
-          base64_image = base64.b64encode(image_data).decode('utf-8')
-          
-          image_url = f'data:image/png;base64,{base64_image}'
-          
+          if SelectInput == 1:
+            xlabel = text_4
+            plt.xlabel(xlabel)
     
-          Element('quad').element.innerText = image_url
+            ylabel = text_5
+            plt.ylabel(ylabel)
+
+            plt.bar(list_x,listofint_y)
+    
+            fig
+    
+            buffer = io.BytesIO()
+            plt.savefig(buffer, format='png')
+            buffer.seek(0)
+            image_data = buffer.getvalue()
+            
+            base64_image = base64.b64encode(image_data).decode('utf-8')
+            
+            image_url = f'data:image/png;base64,{base64_image}'
+            
+      
+            Element('quad').element.innerText = image_url
+
+          if SelectInput == 2:
+            xlabel = text_5
+            plt.xlabel(xlabel)
+    
+            ylabel = text_4
+            plt.ylabel(ylabel)
+          
+            plt.barh(list_x,listofint_y)
+    
+            fig
+    
+            buffer = io.BytesIO()
+            plt.savefig(buffer, format='png')
+            buffer.seek(0)
+            image_data = buffer.getvalue()
+            
+            base64_image = base64.b64encode(image_data).decode('utf-8')
+            
+            image_url = f'data:image/png;base64,{base64_image}'
+            
+      
+            Element('quad').element.innerText = image_url
 
           
 

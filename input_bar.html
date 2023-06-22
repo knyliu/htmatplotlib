@@ -452,7 +452,7 @@
             fig
     
             buffer = io.BytesIO()
-            plt.savefig(buffer, format='png')
+            plt.savefig(buffer, format='png', bbox_inches='tight')
             buffer.seek(0)
             image_data = buffer.getvalue()
             

@@ -406,7 +406,7 @@
   white-space: nowrap; 
   border-right: 1px solid #000; 
   font-size: 15px;
-  color: #333;
+  color: #6b6b6b;
   }
   
   @keyframes fade-in {
@@ -454,6 +454,28 @@
   animation: none; 
   content: ""; 
   }
+
+  .recommendation-container {
+			width: 60%;
+			margin-top: 0px;
+			background-color: #f9f9f9;
+			padding: 40px;
+			border-radius: 15px;
+		}
+
+		.recommendation-container h2 {
+			margin-top: 0;
+		}
+
+		.recommendation-container p {
+			margin-bottom: 0px;
+		}
+
+    .container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
   
   </style>
@@ -479,8 +501,124 @@
   <h1 id="text-animation"></h1>
   <br>
   <h1 id="text-animation-2"></h1>
+  <br> <br> <br> <br>
+  <hr/>
+  <style>hr {width: 80%; margin: 0 10% 0 10%;}</style>
+  <br>  <br>  <br> <br>
 
 
+  <h1 style = "text-align: center;" id="text_title">Update Information</h1>
+  <style>
+    #text_title {
+      text-align: center; 
+      overflow: hidden; 
+      white-space: nowrap; 
+      font-size: 40px;
+      color: #333;
+    }
+  </style>
+  <br>
+  <div class="container2">
+  <div class="recommendation-container" style = "text-align: center;">
+
+    <h3 id="text_date">June 22, 2023</h3>
+    <style>
+      #text_date {
+        text-align: center; 
+        overflow: hidden; 
+        white-space: nowrap; 
+        font-size: 20px;
+        color: #333;
+      }
+    </style>
+    <br>
+    <p style = "text-align: left;">1. Adding Horizontal Bar Chart Style to Bar</p>
+    <p style = "text-align: left;">2. User can choose the bar chart style on their own in Bar</p>
+    <p style = "text-align: left;">3. Allowing string data as categories in Bar</p>
+    <p style = "text-align: left;">4. Solving the issue of cropped output images in Bar</p>
+
+    <br>
+    <br>
+    <h3 id="text_date">June 24, 2023</h3>
+    <br>
+    <p style = "text-align: left;">1. Adding Horizontal Bar Chart Style to Multi-Bar</p>
+    <p style = "text-align: left;">2. User can choose the bar chart style on their own in Multi-Bar</p>
+    <p style = "text-align: left;">3. Allowing string data as categories in Multi-Bar</p>
+    <p style = "text-align: left;">4. Solving the issue of cropped output images in Multi-Bar</p>
+
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr/>
+<style>hr {width: 80%; margin: 0 10% 0 10%;}</style>
+<br>  <br>  <br> <br>
+<h1 style = "text-align: center;" id="text_title">Developer</h1>
+<br>
+  <div class="container2">
+  <div class="recommendation-container" style = "text-align: center;">
+
+    <h2 id="text_name">YEN-KU, LIU</h2>
+    <style>
+      #text_name {
+        text-align: center; 
+        overflow: hidden; 
+        white-space: nowrap; 
+        font-size: 40px;
+        color: #333;
+      }
+    </style>
+    <h5 id="text_en_name">劉 彥 谷</h5>
+    <style>
+      #text_en_name {
+        text-align: center; 
+        overflow: hidden; 
+        white-space: nowrap; 
+        font-size: 15px;
+        color: #6b6b6b;
+      }
+    </style>
+    <br>
+    <style>
+      #picture {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+        border-radius: 15px;
+  
+      }
+      
+      #picture img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        transition: opacity 1s ease-in-out;
+        display: block;
+        margin: 0 auto;
+        border-radius:100%;
+  
+      }
+    </style>
+      
+      <div id="picture">
+      <img src="ykliu.png" >      
+    </div>
+    <br>
+
+    <br>
+    <br>
+    <h4 style = "text-align: center;">National Taiwan Normal University</h4>
+    <br>
+    <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
+  </div>
+</div>
+<br> <br>
   <script>
     document.addEventListener("DOMContentLoaded", function(event) {
   var text = "HTMatplotLib";

@@ -1,695 +1,678 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <title>HTMatplotLib</title>
-  <style>
-    
-      .grid-full {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        border-radius: 10px;
+	<meta charset="utf-8">
 
-      }
-      .grid-product-full {
-        background: #f1f1f1;
-        grid-column: span 3;
-        display: flex;
-        position: relative;
-        border-radius: 10px;
+	<title>HTMatplotLib</title>
+	<style>
+	   
+	     .grid-full {
+	       display: grid;
+	       grid-template-columns: repeat(3, 1fr);
+	       grid-gap: 10px;
+	       border-radius: 10px;
 
-      }
-      .grid-detail-sum {
-        position: absolute;
-        top: 35%;
-        right: 12%;
-        text-align: center;
-        border-radius: 10px;
+	     }
+	     .grid-product-full {
+	       background: #f1f1f1;
+	       grid-column: span 3;
+	       display: flex;
+	       position: relative;
+	       border-radius: 10px;
 
-      }
-      .grid-detail-sum h2 {
-        font-size: 3rem;
-        font-weight: 500;
-      }
-      .grid-detail-sum p {
-        margin: 20px 0;
-      }
-      .grid-detail-sum a {
-        color: #3498db;
-      }
-      .grid-detail-sum a:hover {
-        text-decoration: underline;
-      }
-    .container-contact {
-      padding: 20px;
-      text-align: center;
-      color: rgb(87, 87, 87);
-      background-color: rgb(255, 255, 255);
-      width: 100%;
-    }
+	     }
+	     .grid-detail-sum {
+	       position: absolute;
+	       top: 35%;
+	       right: 12%;
+	       text-align: center;
+	       border-radius: 10px;
 
-    .container-contact h3 {
-      font-size: 30px;
-      text-align: center;
-      padding: 20px;
-    }
+	     }
+	     .grid-detail-sum h2 {
+	       font-size: 3rem;
+	       font-weight: 500;
+	     }
+	     .grid-detail-sum p {
+	       margin: 20px 0;
+	     }
+	     .grid-detail-sum a {
+	       color: #3498db;
+	     }
+	     .grid-detail-sum a:hover {
+	       text-decoration: underline;
+	     }
+	   .container-contact {
+	     padding: 20px;
+	     text-align: center;
+	     color: rgb(87, 87, 87);
+	     background-color: rgb(255, 255, 255);
+	     width: 100%;
+	   }
 
-    .btn {
-      height: 35px;
-      width: 250px;
-      font-size: 13px;
-      margin: 20px 0px 20px 0px;
-      background-color: rgb(87, 87, 87);
-      color: rgb(255, 255, 255);
-      border-radius: 50px;
-      transition: 0.3s;
-    }
+	   .container-contact h3 {
+	     font-size: 30px;
+	     text-align: center;
+	     padding: 20px;
+	   }
 
-
-    .btn:hover {
-      background-color: rgb(211, 211, 211);
-      color: black;
-    }
-
-    input {
-      margin-top: 10px;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    }
+	   .btn {
+	     height: 35px;
+	     width: 250px;
+	     font-size: 13px;
+	     margin: 20px 0px 20px 0px;
+	     background-color: rgb(87, 87, 87);
+	     color: rgb(255, 255, 255);
+	     border-radius: 50px;
+	     transition: 0.3s;
+	   }
 
 
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      text-decoration: none;
+	   .btn:hover {
+	     background-color: rgb(211, 211, 211);
+	     color: black;
+	   }
 
-    }
+	   input {
+	     margin-top: 10px;
+	   }
+
+	   body {
+	     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	   }
 
 
-    nav {
-      width: 100%;
-      height: 43px;
-      background: #434345;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+	   * {
+	     padding: 0;
+	     margin: 0;
+	     box-sizing: border-box;
+	     text-decoration: none;
 
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
+	   }
 
-    nav ul li {
-      margin: 0 40px;
-    }
 
-    nav ul li a {
-      font-weight: 300;
-      color: #D9D9DB;
-      transition: 100ms;
-      font-size: 12px;
+	   nav {
+	     width: 100%;
+	     height: 43px;
+	     background: #434345;
+	     display: flex;
+	     justify-content: center;
+	     align-items: center;
+	   }
 
-    }
+	   nav ul {
+	     list-style: none;
+	     display: flex;
+	   }
 
-    nav ul li a:hover {
-      color: #f5f5f7;
-    }
+	   nav ul li {
+	     margin: 0 40px;
+	   }
 
-    #test-input {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      color: #333;
-      font-family: Arial, sans-serif;
-      width: 300px;
-      height: 30px;
-      border-radius: 5px;
-      text-align: center;
-      padding: 5px;
-    }
+	   nav ul li a {
+	     font-weight: 300;
+	     color: #D9D9DB;
+	     transition: 100ms;
+	     font-size: 12px;
 
-    #test-input-2 {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      color: #333;
-      font-family: Arial, sans-serif;
-      width: 300px;
-      height: 30px;
-      border-radius: 5px;
-      text-align: center;
-      padding: 5px;
-    }
+	   }
 
-    #test-input-3 {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      color: #333;
-      font-family: Arial, sans-serif;
-      width: 600px;
-      height: 30px;
-      border-radius: 5px;
-      text-align: center;
-      padding: 5px;
-    }
+	   nav ul li a:hover {
+	     color: #f5f5f7;
+	   }
 
-    #test-input-4 {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      color: #333;
-      font-family: Arial, sans-serif;
-      width: 300px;
-      height: 30px;
-      border-radius: 5px;
-      text-align: center;
-      padding: 5px;
-    }
+	   #test-input {
+	     background-color: #f5f5f5;
+	     border: 1px solid #ccc;
+	     color: #333;
+	     font-family: Arial, sans-serif;
+	     width: 300px;
+	     height: 30px;
+	     border-radius: 5px;
+	     text-align: center;
+	     padding: 5px;
+	   }
 
-    #test-input-5 {
-      background-color: #f5f5f5;
-      border: 1px solid #ccc;
-      color: #333;
-      font-family: Arial, sans-serif;
-      width: 300px;
-      height: 30px;
-      border-radius: 5px;
-      text-align: center;
-      padding: 5px;
-    }
+	   #test-input-2 {
+	     background-color: #f5f5f5;
+	     border: 1px solid #ccc;
+	     color: #333;
+	     font-family: Arial, sans-serif;
+	     width: 300px;
+	     height: 30px;
+	     border-radius: 5px;
+	     text-align: center;
+	     padding: 5px;
+	   }
 
-    .t_container {
-      width: 60%;
-      margin: 0 auto;
-      background-color: #f5f5f5;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+	   #test-input-3 {
+	     background-color: #f5f5f5;
+	     border: 1px solid #ccc;
+	     color: #333;
+	     font-family: Arial, sans-serif;
+	     width: 600px;
+	     height: 30px;
+	     border-radius: 5px;
+	     text-align: center;
+	     padding: 5px;
+	   }
 
-    .t_container-truncate {
-      text-overflow: clip;
-      width: 10px;
-    }
+	   #test-input-4 {
+	     background-color: #f5f5f5;
+	     border: 1px solid #ccc;
+	     color: #333;
+	     font-family: Arial, sans-serif;
+	     width: 300px;
+	     height: 30px;
+	     border-radius: 5px;
+	     text-align: center;
+	     padding: 5px;
+	   }
 
-    .t_container-truncate::after {
-      content: "...";
-    }
+	   #test-input-5 {
+	     background-color: #f5f5f5;
+	     border: 1px solid #ccc;
+	     color: #333;
+	     font-family: Arial, sans-serif;
+	     width: 300px;
+	     height: 30px;
+	     border-radius: 5px;
+	     text-align: center;
+	     padding: 5px;
+	   }
 
-    iframe {
-      width: 60%;
-      height: 600px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      text-align: center;
-    }
+	   .t_container {
+	     width: 60%;
+	     margin: 0 auto;
+	     background-color: #f5f5f5;
+	     padding: 20px;
+	     border-radius: 5px;
+	     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	     overflow: hidden;
+	     white-space: nowrap;
+	     text-overflow: ellipsis;
+	   }
 
-    footer {
-      width: 100%;
-      height: 550px;
-      background: #f1f1f1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+	   .t_container-truncate {
+	     text-overflow: clip;
+	     width: 10px;
+	   }
 
-    .footer-main {
-      width: 75%;
-    }
+	   .t_container-truncate::after {
+	     content: "...";
+	   }
 
-    .footer-detail {
-      font-size: .7rem;
-      color: #95a5a6;
-      padding: 20px 0;
-      border-bottom: 1px solid #bdc3c7;
-    }
+	   iframe {
+	     width: 60%;
+	     height: 600px;
+	     border: 1px solid #ccc;
+	     border-radius: 5px;
+	     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	     overflow: hidden;
+	     text-align: center;
+	   }
 
-    .footer-detail a {
-      color: #2c3e50;
-    }
+	   footer {
+	     width: 100%;
+	     height: 550px;
+	     background: #f1f1f1;
+	     display: flex;
+	     flex-direction: column;
+	     align-items: center;
+	   }
 
-    .footer-detail a:hover {
-      text-decoration: underline;
-    }
+	   .footer-main {
+	     width: 75%;
+	   }
 
-    .footer-welcome {
-      display: flex;
-      margin: 20px 0;
-      font-size: .8rem;
-      color: #34495e;
-    }
+	   .footer-detail {
+	     font-size: .7rem;
+	     color: #95a5a6;
+	     padding: 20px 0;
+	     border-bottom: 1px solid #bdc3c7;
+	   }
 
-    .footer-welcome i {
-      margin-right: 10px;
-    }
+	   .footer-detail a {
+	     color: #2c3e50;
+	   }
 
-    .footer-ul {
-      display: flex;
-      justify-content: space-between;
-    }
+	   .footer-detail a:hover {
+	     text-decoration: underline;
+	   }
 
-    .footer-ul ul {
-      list-style: none;
-    }
+	   .footer-welcome {
+	     display: flex;
+	     margin: 20px 0;
+	     font-size: .8rem;
+	     color: #34495e;
+	   }
 
-    .footer-ul ul li {
-      margin: 7px 0;
-    }
+	   .footer-welcome i {
+	     margin-right: 10px;
+	   }
 
-    .footer-ul ul li h4 {
-      color: #34495e;
-      font-size: .7rem;
-    }
+	   .footer-ul {
+	     display: flex;
+	     justify-content: space-between;
+	   }
 
-    .footer-ul ul li a {
-      color: #7f8c8d;
-      font-size: .7rem;
-    }
+	   .footer-ul ul {
+	     list-style: none;
+	   }
 
-    .footer-ul ul li a:hover {
-      text-decoration: underline;
-    }
+	   .footer-ul ul li {
+	     margin: 7px 0;
+	   }
 
-    #mt {
-      padding-top: 30px;
-    }
+	   .footer-ul ul li h4 {
+	     color: #34495e;
+	     font-size: .7rem;
+	   }
 
-    .footer-contact {
-      border-bottom: 1px solid #bdc3c7;
-      padding: 12px 0;
-      margin: 10px 0;
-      color: #7f8c8d;
-      font-size: .7rem;
-    }
+	   .footer-ul ul li a {
+	     color: #7f8c8d;
+	     font-size: .7rem;
+	   }
 
-    .footer-contact a {
-      color: #3498db;
-    }
+	   .footer-ul ul li a:hover {
+	     text-decoration: underline;
+	   }
 
-    .footer-contact a:hover {
-      text-decoration: underline;
-    }
+	   #mt {
+	     padding-top: 30px;
+	   }
 
-    .footer-copyright {
-      color: #7f8c8d;
-      font-size: .7rem;
-      display: flex;
-      justify-content: space-between;
-    }
+	   .footer-contact {
+	     border-bottom: 1px solid #bdc3c7;
+	     padding: 12px 0;
+	     margin: 10px 0;
+	     color: #7f8c8d;
+	     font-size: .7rem;
+	   }
 
-    .footer-copyright ul {
-      display: flex;
-      list-style: none;
-      width: auto;
-    }
+	   .footer-contact a {
+	     color: #3498db;
+	   }
 
-    .footer-copyright ul li {
-      margin: 0 10px;
-    }
+	   .footer-contact a:hover {
+	     text-decoration: underline;
+	   }
 
-    .footer-copyright ul li a {
-      color: #7f8c8d;
-    }
+	   .footer-copyright {
+	     color: #7f8c8d;
+	     font-size: .7rem;
+	     display: flex;
+	     justify-content: space-between;
+	   }
 
-    .footer-copyright ul li a:hover {
-      text-decoration: underline;
-    }
+	   .footer-copyright ul {
+	     display: flex;
+	     list-style: none;
+	     width: auto;
+	   }
 
-    .vr {
-      height: 15px;
-      width: 1px;
-      background: #bdc3c7;
-    }
+	   .footer-copyright ul li {
+	     margin: 0 10px;
+	   }
 
-    .footer-lang {
-      display: flex;
-    }
+	   .footer-copyright ul li a {
+	     color: #7f8c8d;
+	   }
 
-    .footer-lang p {
-      margin: 0 10px;
-    }
+	   .footer-copyright ul li a:hover {
+	     text-decoration: underline;
+	   }
 
-    .circle {
-      width: 15px;
-      height: 15px;
-    }
+	   .vr {
+	     height: 15px;
+	     width: 1px;
+	     background: #bdc3c7;
+	   }
 
-    .circle img {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      border-radius: 50%;
-    }
-    
-    .image-container {
-      display: flex;
-      overflow: visible;
-      width: 100%;
-      animation: slide-animation 240s linear infinite;
-    }
+	   .footer-lang {
+	     display: flex;
+	   }
 
-    @keyframes slide-animation {
-      0% {
-        transform: translateX(0%);
-      }
-      100% {
-        transform: translateX(calc(-100% * 6));
-      }
-    }
+	   .footer-lang p {
+	     margin: 0 10px;
+	   }
 
-    .image-container img {
-      width: 800px;
-      height: 366px;
-    }
+	   .circle {
+	     width: 15px;
+	     height: 15px;
+	   }
 
-    .picture0 {
-          width: 100%;
-          height: auto;
-        }
-  </style>
+	   .circle img {
+	     width: 100%;
+	     height: 100%;
+	     background-size: cover;
+	     border-radius: 50%;
+	   }
+	   
+	   .image-container {
+	     display: flex;
+	     overflow: visible;
+	     width: 100%;
+	     animation: slide-animation 240s linear infinite;
+	   }
 
+	   @keyframes slide-animation {
+	     0% {
+	       transform: translateX(0%);
+	     }
+	     100% {
+	       transform: translateX(calc(-100% * 6));
+	     }
+	   }
+
+	   .image-container img {
+	     width: 800px;
+	     height: 366px;
+	   }
+
+	   .picture0 {
+	         width: 100%;
+	         height: auto;
+	       }
+	</style>
 </head>
 
 <body>
-  <nav>
-    <ul>
-      <li><a href="index.html">HTMatplotLib</a></li>
-      <li><a href="input_bar.html">Bar</a></li>
-      <li><a href="input_line.html">Line</a></li>
-      <li><a href="input_pie.html">Pie</a></li>
-      <li><a href="input_multi_bar.html">Multi-Bar</a></li>
-      <li><a href="input_multi_line.html">Multi-Line</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+	<nav>
+		<ul>
+			<li>
+				<a href="index.html">HTMatplotLib</a>
+			</li>
 
-    </ul>
-  </nav>
 
-  <br>  <br>
+			<li>
+				<a href="input_bar.html">Bar</a>
+			</li>
 
-  <div style="display: flex; justify-content: center; align-items: center">
-    <img src="https://i.imgur.com/reWmUW5.png" style="width: 711.6px; height: 154.695652px;">
-  </div>
-<!--1-->
+
+			<li>
+				<a href="input_line.html">Line</a>
+			</li>
+
+
+			<li>
+				<a href="input_pie.html">Pie</a>
+			</li>
+
+
+			<li>
+				<a href="input_scatter.html">Scatter</a>
+			</li>
+
+
+			<li>
+				<a href="input_multi_bar.html">Multi-Bar</a>
+			</li>
+
+
+			<li>
+				<a href="input_multi_line.html">Multi-Line</a>
+			</li>
+
+
+			<li>
+				<a href="about.html">About</a>
+			</li>
+
+
+			<li>
+				<a href="contact.html">Contact</a>
+			</li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+
+
+	<div style="display: flex; justify-content: center; align-items: center"><img src="https://i.imgur.com/reWmUW5.png" style="width: 711.6px; height: 154.695652px;">
+	</div>
+	<!--1-->
+
+
+	<div class="container2">
+		<div class="recommendation-container" style="text-align: center;">
+			<div class="for_flex">
+				<div>
+					<style>
+					   .for_flex {
+					     display: flex;
+					     align-items: center;
+					     justify-content: space-evenly;
+					   }
+					</style>
+
+					<h2 id="text_name">Bar Chart</h2>
+					<style>
+					   #text_name {
+					     text-align: center; 
+					     overflow: hidden; 
+					     white-space: nowrap; 
+					     font-size: 1vw;
+					     color: #333;
+					   }
+					</style><br>
+
+
+					<h5 id="text_en_name">A graphical representation using rectangular bars to compare different categories or groups.</h5>
+					<style>
+					   #text_en_name {
+					     text-align: center; 
+					     overflow: hidden; 
+					     font-size: 1vw;
+					     color: #6b6b6b;
+					   }
+					</style><br>
+					<style>
+
+            #picture img {
+              max-width: 80%;
+              height: auto;
+              display: block;
+              margin-bottom: 10px; /* 添加图片间距 */
+              margin-left: 50px;
+            }
+
+            @media (max-width: 600px) {
+              #picture img {
+                display: block;
+                margin: 10px auto; /* 居中显示图片，并添加图片间距 */
+              }
+            }
+
+
+
+					   .recommendation-container {
+					     width: 70%;
+					     margin-top: 0px;
+					     background-color: #f9f9f9;
+					     padding: 40px;
+					     border-radius: 15px;
+					       }
+
+					   .recommendation-container h2 {
+					     margin-top: 0;
+					   }
+
+					   .recommendation-container p {
+					     margin-bottom: 0px;
+					   }
+
+					   .container2 {
+					     display: flex;
+					     justify-content: center;
+					     align-items: center;
+					   }
+					</style>
+				</div>
+
+
+				<div class="picture0">
+					<div id="picture"><img src="Bar.png">
+					</div>
+					<!--
+      <br>
+  
+      <br>
+      <br>
+      
+      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
+      <br>
+      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
+      -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!--2-->
+
+
+	<div class="container2">
+		<div class="recommendation-container" style="text-align: center;">
+			<div class="for_flex">
+				<div>
+
+
+					<h2 id="text_name">Line Chart</h2>
+					<br>
+
+
+					<h5 id="text_en_name">A visual representation showing the relationship or trend between two variables over time or a continuous interval.</h5>
+					<br>
+					<style>
+
+
+					   .recommendation-container {
+					     width: 70%;
+					     margin-top: 0px;
+					     background-color: #f9f9f9;
+					     padding: 40px;
+					     border-radius: 15px;
+					       }
+
+					   .recommendation-container h2 {
+					     margin-top: 0;
+					   }
+
+					   .recommendation-container p {
+					     margin-bottom: 0px;
+					   }
+
+					   .container2 {
+					     display: flex;
+					     justify-content: center;
+					     align-items: center;
+					   }
+					</style>
+				</div>
+
+
+				<div class="picture0">
+					<div>
+						<div id="picture"><img src="Line.png">
+						</div>
+					</div>
+					<!--
+      <br>
+  
+      <br>
+      <br>
+      
+      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
+      <br>
+      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
+      -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!--3-->
+
+
+	<div class="container2">
+		<div class="recommendation-container" style="text-align: center;">
+			<div class="for_flex">
+				<div>
+
+
+					<h2 id="text_name">Pie Chart</h2>
+					<br>
+
+
+					<h5 id="text_en_name">A circular graph that illustrates the proportion or percentage of different categories within a dataset.</h5>
+					<br>
+					<style>
+
+
+					   .recommendation-container {
+					     width: 70%;
+					     margin-top: 0px;
+					     background-color: #f9f9f9;
+					     padding: 40px;
+					     border-radius: 15px;
+					       }
+
+					   .recommendation-container h2 {
+					     margin-top: 0;
+					   }
+
+					   .recommendation-container p {
+					     margin-bottom: 0px;
+					   }
+
+					   .container2 {
+					     display: flex;
+					     justify-content: center;
+					     align-items: center;
+					   }
+					</style>
+				</div>
+
+
+				<div class="picture0">
+					<div>
+						<div id="picture"><img src="Pie.png">
+						</div>
+					</div>
+					<!--
+      <br>
+  
+      <br>
+      <br>
+      
+      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
+      <br>
+      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
+      -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!--1
   <div class="container2">
     <div class="recommendation-container" style = "text-align: center;">
     <div class="for_flex">
       <div>
-      <style>
-        .for_flex {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-        }
-      </style>
+
 
       <h2 id="text_name">Bar Chart</h2>
-      <style>
-        #text_name {
-          text-align: center; 
-          overflow: hidden; 
-          white-space: nowrap; 
-          font-size: 40px;
-          color: #333;
-        }
-      </style>
-      <br>
-      <h5 id="text_en_name">A graphical representation using rectangular bars to compare different categories or groups.</h5>
 
-      <style>
-        #text_en_name {
-          text-align: center; 
-          overflow: hidden; 
-          font-size: 5vw;
-          color: #6b6b6b;
-        }
-      </style>
-      <br>
-      <style>
-        #picture img{
-          max-width: 80%;
-          height: auto;
-          margin: 0 auto;
-          border-radius: 15px;
-        }
-        
-
-
-        .recommendation-container {
-          width: 70%;
-          margin-top: 0px;
-          background-color: #f9f9f9;
-          padding: 40px;
-          border-radius: 15px;
-		    }
-
-        .recommendation-container h2 {
-          margin-top: 0;
-        }
-
-        .recommendation-container p {
-          margin-bottom: 0px;
-        }
-
-        .container2 {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      </style>
-        </div>
-      <div class="picture0">
-        <div id="picture">
-        <img src="Bar.png" >      
-      </div>
-
-
-      <!--
-      <br>
-  
-      <br>
-      <br>
-      
-      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
-      <br>
-      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
-      -->
-    </div>
-    </div>
-    </div>
-  </div>
-
-  <br> <br>
-  <!--2-->
-  <div class="container2">
-    <div class="recommendation-container" style = "text-align: center;">
-    <div class="for_flex">
-      <div>
-      <style>
-        .for_flex {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-        }
-      </style>
-
-      <h2 id="text_name">Line Chart</h2>
-      <style>
-        #text_name {
-          text-align: center; 
-          overflow: hidden; 
-          white-space: nowrap; 
-          font-size: 40px;
-          color: #333;
-        }
-      </style>
-      <br>
-      <h5 id="text_en_name">A visual representation showing the relationship or trend between two variables over time or a continuous interval.</h5>
-
-      <style>
-        #text_en_name {
-          text-align: center; 
-          overflow: hidden; 
-          font-size: 15px;
-          color: #6b6b6b;
-        }
-      </style>
-      <br>
-      <style>
-
-
-        .recommendation-container {
-          width: 70%;
-          margin-top: 0px;
-          background-color: #f9f9f9;
-          padding: 40px;
-          border-radius: 15px;
-		    }
-
-        .recommendation-container h2 {
-          margin-top: 0;
-        }
-
-        .recommendation-container p {
-          margin-bottom: 0px;
-        }
-
-        .container2 {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      </style>
-        </div>
-        <div class="picture0">
-      <div>
-        <div id="picture">
-        <img src="Line.png" >      
-      </div>
-      </div>
-      <!--
-      <br>
-  
-      <br>
-      <br>
-      
-      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
-      <br>
-      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
-      -->
-    </div>
-    </div>
-    </div>
-  </div>
-
-  <br> <br>
-  <!--3-->
-  <div class="container2">
-    <div class="recommendation-container" style = "text-align: center;">
-    <div class="for_flex">
-      <div>
-      <style>
-        .for_flex {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-        }
-      </style>
-
-      <h2 id="text_name">Pie Chart</h2>
-      <style>
-        #text_name {
-          text-align: center; 
-          overflow: hidden; 
-          white-space: nowrap; 
-          font-size: 40px;
-          color: #333;
-        }
-      </style>
-      <br>
-      <h5 id="text_en_name">A circular graph that illustrates the proportion or percentage of different categories within a dataset.</h5>
-
-      <style>
-        #text_en_name {
-          text-align: center; 
-          overflow: hidden; 
-          font-size: 15px;
-          color: #6b6b6b;
-        }
-      </style>
-      <br>
-      <style>
-
-
-        .recommendation-container {
-          width: 70%;
-          margin-top: 0px;
-          background-color: #f9f9f9;
-          padding: 40px;
-          border-radius: 15px;
-		    }
-
-        .recommendation-container h2 {
-          margin-top: 0;
-        }
-
-        .recommendation-container p {
-          margin-bottom: 0px;
-        }
-
-        .container2 {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      </style>
-        </div>
-        <div class="picture0">
-
-      <div>
-        <div id="picture">
-        <img src="Pie.png" >      
-      </div>
-      </div>
-      <!--
-      <br>
-  
-      <br>
-      <br>
-      
-      <h4 style = "text-align: center;">National Taiwan Normal University</h4>
-      <br>
-      <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
-      -->
-    </div>
-    </div>
-    </div>
-  </div>
-
-  <br> <br>
-  <!--1
-  <div class="container2">
-    <div class="recommendation-container" style = "text-align: center;">
-    <div class="for_flex">
-      <div>
-      <style>
-        .for_flex {
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-        }
-      </style>
-
-      <h2 id="text_name">Bar Chart</h2>
-      <style>
-        #text_name {
-          text-align: center; 
-          overflow: hidden; 
-          white-space: nowrap; 
-          font-size: 40px;
-          color: #333;
-        }
-      </style>
       <br>
       <h5 id="text_en_name">A graphical representation using</h5>
       <h5 id="text_en_name"> rectangular bars to compare different categories or groups.</h5>
 
-      <style>
-        #text_en_name {
-          text-align: center; 
-          overflow: hidden; 
-          font-size: 15px;
-          color: #6b6b6b;
-        }
-      </style>
+
       <br>
       <style>
 
@@ -700,7 +683,7 @@
           background-color: #f9f9f9;
           padding: 40px;
           border-radius: 15px;
-		    }
+            }
 
         .recommendation-container h2 {
           margin-top: 0;
@@ -725,7 +708,7 @@
       </div>
     </div>
       -->
-      <!--
+	 <!--
       <br>
   
       <br>
@@ -735,24 +718,18 @@
       <br>
       <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
       -->
-    </div>
-    </div>
-    </div>
-  </div>
+	 <!--4-->
 
-  
-  <!--4-->
-  <div class="container2">
-    <div class="recommendation-container" style = "text-align: center;">
-      <div class="for_flex">
-        <div class="picture0">
 
-        <div>
-          <div id="picture">
-          <img src="Multi-Bar.png" >      
-        </div>
-        </div>
-        <!--
+	<div class="container2">
+		<div class="recommendation-container" style="text-align: center;">
+			<div class="for_flex">
+				<div class="picture0">
+					<div>
+						<div id="picture"><img src="Multi-Bar.png">
+						</div>
+					</div>
+					<!--
         <br>
     
         <br>
@@ -762,83 +739,61 @@
         <br>
         <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
         -->
-      </div>
-        <div>
-          <style>
-            .for_flex {
-              display: flex;
-              align-items: center;
-              justify-content: space-evenly;
-            }
-          </style>
-
-          <h2 id="text_name">Multi-Bar</h2>
-          <style>
-            #text_name {
-              text-align: center; 
-              overflow: hidden; 
-              white-space: nowrap; 
-              font-size: 40px;
-              color: #333;
-            }
-          </style>
-          <br>
-          <h5 id="text_en_name">Compare with different data. Showing them together with bar chart.</h5>
-
-          <style>
-            #text_en_name {
-              text-align: center; 
-              overflow: hidden; 
-              font-size: 15px;
-              color: #6b6b6b;
-            }
-          </style>
-          <br>
-          <style>
+				</div>
 
 
-            .recommendation-container {
-              width: 70%;
-              margin-top: 0px;
-              background-color: #f9f9f9;
-              padding: 40px;
-              border-radius: 15px;
-            }
-
-            .recommendation-container h2 {
-              margin-top: 0;
-            }
-
-            .recommendation-container p {
-              margin-bottom: 0px;
-            }
-
-            .container2 {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          </style>
-        </div>
+				<div>
 
 
-      </div>
-    </div>
-  </div>
+					<h2 id="text_name">Multi-Bar</h2>
+					<br>
 
-  <br> <br>
-   <!--5-->
-   <div class="container2">
-    <div class="recommendation-container" style = "text-align: center;">
-      <div class="for_flex">
-        <div class="picture0">
 
-        <div>
-          <div id="picture">
-          <img src="Multi-Line.png" >      
-        </div>
-        </div>
-        <!--
+					<h5 id="text_en_name">Compare with different data. Showing them together with bar chart.</h5>
+					<br>
+					<style>
+
+
+					       .recommendation-container {
+					         width: 70%;
+					         margin-top: 0px;
+					         background-color: #f9f9f9;
+					         padding: 40px;
+					         border-radius: 15px;
+					       }
+
+					       .recommendation-container h2 {
+					         margin-top: 0;
+					       }
+
+					       .recommendation-container p {
+					         margin-bottom: 0px;
+					       }
+
+					       .container2 {
+					         display: flex;
+					         justify-content: center;
+					         align-items: center;
+					       }
+					</style>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!--5-->
+
+
+	<div class="container2">
+		<div class="recommendation-container" style="text-align: center;">
+			<div class="for_flex">
+				<div class="picture0">
+					<div>
+						<div id="picture"><img src="Multi-Line.png">
+						</div>
+					</div>
+					<!--
         <br>
     
         <br>
@@ -848,72 +803,58 @@
         <br>
         <h6 style = "text-align: center;">Department of Technology Application and Human Resource Development</h6>
         -->
-      </div>
-        <div>
-          <style>
-            .for_flex {
-              display: flex;
-              align-items: center;
-              justify-content: space-evenly;
-            }
-          </style>
-
-          <h2 id="text_name">Multi-Line</h2>
-          <style>
-            #text_name {
-              text-align: center; 
-              overflow: hidden; 
-              white-space: nowrap; 
-              font-size: 40px;
-              color: #333;
-            }
-          </style>
-          <br>
-          <h5 id="text_en_name">Compare with different data. Showing them together with line chart.</h5>
-
-          <style>
-            #text_en_name {
-              text-align: center; 
-              overflow: hidden; 
-              font-size: 15px;
-              color: #6b6b6b;
-            }
-          </style>
-          <br>
-          <style>
+				</div>
 
 
-            .recommendation-container {
-              width: 70%;
-              margin-top: 0px;
-              background-color: #f9f9f9;
-              padding: 40px;
-              border-radius: 15px;
-            }
-
-            .recommendation-container h2 {
-              margin-top: 0;
-            }
-
-            .recommendation-container p {
-              margin-bottom: 0px;
-            }
-
-            .container2 {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          </style>
-        </div>
+				<div>
 
 
-      </div>
-    </div>
-  </div>
+					<h2 id="text_name">Multi-Line</h2>
+					<style>
+					       #text_name {
+					         text-align: center; 
+					         overflow: hidden; 
+					         white-space: nowrap; 
+					         font-size: 40px;
+					         color: #333;
+					       }
+					</style><br>
 
-  <br> <br>
-  <!--
+
+					<h5 id="text_en_name">Compare with different data. Showing them together with line chart.</h5>
+					<br>
+					<style>
+
+
+					       .recommendation-container {
+					         width: 70%;
+					         margin-top: 0px;
+					         background-color: #f9f9f9;
+					         padding: 40px;
+					         border-radius: 15px;
+					       }
+
+					       .recommendation-container h2 {
+					         margin-top: 0;
+					       }
+
+					       .recommendation-container p {
+					         margin-bottom: 0px;
+					       }
+
+					       .container2 {
+					         display: flex;
+					         justify-content: center;
+					         align-items: center;
+					       }
+					</style>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<!--
   <div style="display: flex; justify-content: center; align-items: center">
     <img src="https://i.imgur.com/pHCwHXu.png" style="width: 1423.2px; height: 650.4px;">
   </div>
@@ -934,8 +875,7 @@
     <img src="https://i.imgur.com/bECihBb.png" style="width: 1423.2px; height: 650.4px;">
   </div>
 -->
-
-<!--
+	 <!--
   <div class="image-container">
     <img src="https://i.imgur.com/pHCwHXu.png">
     <img src="https://i.imgur.com/ZoP1cNM.png">
@@ -944,125 +884,248 @@
     <img src="https://i.imgur.com/bECihBb.png">
   </div>
 -->
-  <br>
-
-  <footer>
-    <div class="footer-main">
-      <div class="footer-detail">
-        <p>1. Please separate the two elements with a space.</p>
-        <p>2. It is forbidden to have space in an element.</p>
-        <p>3. All graph generation is based on Matplotlib.</a></p>
-      </div>
-
-      <div class="footer-welcome">
-        <p>Welcome to HTMatplotLib</p>
-      </div>
-
-      <div class="footer-ul">
-        <ul>
-          <li>
-            <h4>Graph</h4>
-          </li>
-          <li><a href="input_bar.html">Bar Chart</a></li>
-          <li><a href="input_line.html">Line Chart</a></li>
-          <li><a href="input_pie.html">Pie Chart</a></li>
-          <li id="mt"></li>
-          <li>
-            <h4>Graph with Multiple Data</h4>
-          </li>
-          <li><a href="input_multi_bar.html">Multi-Bar</a></li>
-          <li><a href="input_multi_line.html">Multi-Line</a></li>
-        </ul>
+	<br>
 
 
-        <ul>
-          <li>
-            <h4>Matplotlib</h4>
-          </li>
-          <li><a href="https://matplotlib.org" target="_blank">Website</a></li>
-          <li><a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a></li>
-          <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a></li>
-          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a></li>
-          <li><a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a></li>
-
-        </ul>
-
-        <ul>
-          <li>
-            <h4>Other Website</h4>
-          </li>
-          <li><a href="index.html" target="_blank">HTMatplotLib</a></li>
-          <li><a href="https://knyliu.github.io/superhealth/index.html" target="_blank">SUPERHEALTH</a></li>
-          <li id="mt"></li>
-          <li>
-            <h4>Contact</h4>
-          </li>
-          <li><a href="contact.html" target="_blank">Contact</a></li>
-
-        </ul>
+	<footer>
+		<div class="footer-main">
+			<div class="footer-detail">
+				<p>1. Please separate the two elements with a space.</p>
 
 
-
-        <ul>
-          <li>
-            <h4>About Course</h4>
-          </li>
-          <li><a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a></li>
-          <li><a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course"
-              target="_blank">NTNU Data Science and Computer Programming</a></li>
-          <li><a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a></li>
-        </ul>
+				<p>2. It is forbidden to have space in an element.</p>
 
 
-
-        <ul>
-          <li>
-            <h4>About Developer</h4>
-          </li>
-          <li><a href="about.html" target="_blank">About</a></li>
-          <li><a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a></li>
-          <li><a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a></li>
+				<p>3. All graph generation is based on Matplotlib.</p>
+			</div>
 
 
-
-        </ul>
-
-
-      </div>
+			<div class="footer-welcome">
+				<p>Welcome to HTMatplotLib</p>
+			</div>
 
 
-      <br>
-      <div class="footer-contact">
-        <p>Please feel free to <a href="contact.html">Contact Us.</a></p>
-      </div>
-      <div class="footer-copyright">
-        <p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
-
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Terms of Use</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Sales and Refunds</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Legal</a></li>
-          <div class="vr"></div>
-          <li><a href="#">Sitemap</a></li>
-        </ul>
-
-        <div class="footer-lang">
-
-          <p>Taiwan</p>
-
-        </div>
-      </div>
-
-    </div>
-  </footer>
+			<div class="footer-ul">
+				<ul>
+					<li>
+						<h4>Graph</h4>
+					</li>
 
 
+					<li>
+						<a href="input_bar.html">Bar Chart</a>
+					</li>
 
 
+					<li>
+						<a href="input_line.html">Line Chart</a>
+					</li>
+
+
+					<li>
+						<a href="input_pie.html">Pie Chart</a>
+					</li>
+
+
+					<li>
+						<a href="input_scatter.html">Scatter Chart</a>
+					</li>
+
+
+					<li id="mt">
+					</li>
+
+
+					<li>
+						<h4>Graph with Multiple Data</h4>
+					</li>
+
+
+					<li>
+						<a href="input_multi_bar.html">Multi-Bar</a>
+					</li>
+
+
+					<li>
+						<a href="input_multi_line.html">Multi-Line</a>
+					</li>
+				</ul>
+
+
+				<ul>
+					<li>
+						<h4>Matplotlib</h4>
+					</li>
+
+
+					<li>
+						<a href="https://matplotlib.org" target="_blank">Website</a>
+					</li>
+
+
+					<li>
+						<a href="https://matplotlib.org/stable/users/getting_started/" target="_blank">Getting Started</a>
+					</li>
+
+
+					<li>
+						<a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank">Examples</a>
+					</li>
+
+
+					<li>
+						<a href="https://matplotlib.org/stable/index.html" target="_blank">Reference</a>
+					</li>
+
+
+					<li>
+						<a href="https://matplotlib.org/stable/index.html" target="_blank">Documentation</a>
+					</li>
+				</ul>
+
+
+				<ul>
+					<li>
+						<h4>Other Website</h4>
+					</li>
+
+
+					<li>
+						<a href="index.html" target="_blank">HTMatplotLib</a>
+					</li>
+
+
+					<li>
+						<a href="https://knyliu.github.io/superhealth/index.html" target="_blank">SUPERHEALTH</a>
+					</li>
+
+
+					<li id="mt">
+					</li>
+
+
+					<li>
+						<h4>Contact</h4>
+					</li>
+
+
+					<li>
+						<a href="contact.html" target="_blank">Contact</a>
+					</li>
+				</ul>
+
+
+				<ul>
+					<li>
+						<h4>About Course</h4>
+					</li>
+
+
+					<li>
+						<a href="https://www.ntnu.edu.tw" target="_blank">NTNU</a>
+					</li>
+
+
+					<li>
+						<a href="https://www.aa.ntnu.edu.tw/en/EducationCommittee/ComputationalThinking/Course" target="_blank">NTNU Data Science and Computer Programming</a>
+					</li>
+
+
+					<li>
+						<a href="https://www.tahrd.ntnu.edu.tw/index.php/en/index_en/" target="_blank">NTNU TAHRD</a>
+					</li>
+				</ul>
+
+
+				<ul>
+					<li>
+						<h4>About Developer</h4>
+					</li>
+
+
+					<li>
+						<a href="about.html" target="_blank">About</a>
+					</li>
+
+
+					<li>
+						<a href="https://www.instagram.com/kenny_liou/" target="_blank">Instagram</a>
+					</li>
+
+
+					<li>
+						<a href="https://www.youtube.com/channel/UCjJ1vpgEVjlTy7LmF5l8jdA" target="_blank">YouTube</a>
+					</li>
+				</ul>
+			</div>
+			<br>
+
+
+			<div class="footer-contact">
+				<p>Please feel free to <a href="contact.html">Contact Us.</a></p>
+			</div>
+
+
+			<div class="footer-copyright">
+				<p>Copyright © 2023 YEN-KU, LIU. All rights reserved.</p>
+
+
+				<ul>
+					<li>
+						<a href="#">Privacy Policy</a>
+					</li>
+
+
+					<li style="list-style: none; display: inline">
+						<div class="vr">
+						</div>
+					</li>
+
+
+					<li>
+						<a href="#">Terms of Use</a>
+					</li>
+
+
+					<li style="list-style: none; display: inline">
+						<div class="vr">
+						</div>
+					</li>
+
+
+					<li>
+						<a href="#">Sales and Refunds</a>
+					</li>
+
+
+					<li style="list-style: none; display: inline">
+						<div class="vr">
+						</div>
+					</li>
+
+
+					<li>
+						<a href="#">Legal</a>
+					</li>
+
+
+					<li style="list-style: none; display: inline">
+						<div class="vr">
+						</div>
+					</li>
+
+
+					<li>
+						<a href="#">Sitemap</a>
+					</li>
+				</ul>
+
+
+				<div class="footer-lang">
+					<p>Taiwan</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
-
 </html>

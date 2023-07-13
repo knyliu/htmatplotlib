@@ -15,7 +15,7 @@
             var input = document.createElement("input");
             input.type = "text";
             input.id = "input_x_" + i;
-            input.placeholder = "請輸入第 " + (i + 1) + " 條的x軸料";
+            input.placeholder = "請輸入第 " + (i + 1) + " 條的x軸資料";
             container.appendChild(input);
             container.appendChild(document.createElement("br"));
     
@@ -511,6 +511,7 @@
       <li><a href="input_bar.html">Bar</a></li>  
       <li><a href="input_line.html">Line</a></li>
       <li><a href="input_pie.html">Pie</a></li>  
+      <li><a href="input_scatter.html">Scatter</a></li>  
       <li><a href="input_multi_bar.html">Multi-Bar</a></li>  
       <li><a href="input_multi_line.html">Multi-Line</a></li>  
       <li><a href="about.html">About</a></li>
@@ -815,7 +816,7 @@
         document.body.removeChild(tempInput);
 
 
-        alert('已複製文字');
+        alert('Copied successfully');
       });
 
 
@@ -851,6 +852,7 @@
           <li><a href="input_bar.html">Bar Chart</a></li>
           <li><a href="input_line.html">Line Chart</a></li>
           <li><a href="input_pie.html">Pie Chart</a></li>
+          <li><a href="input_scatter.html">Scatter Chart</a></li>
           <li id="mt"></li>
           <li>
             <h4>Graph with Multiple Data</h4>
